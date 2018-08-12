@@ -47,7 +47,7 @@ public class BankAcount {
 	}
 	
 	public void retrait(double montant) {
-		
+		solde -= montant;
 	}
 	/* retour des propriétés :
 	 *  nomTitulaireCompte
