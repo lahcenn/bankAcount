@@ -8,7 +8,7 @@ public class BankAcount {
 
 	private String nomTitulaireCompte;
 	private String prenomTitulaireCompte;
-	private int numeroCompte;
+	private long numeroCompte;
 	private double solde;
 	
 	/* Constructeur */
@@ -46,6 +46,9 @@ public class BankAcount {
 		this.solde = solde;
 	}
 	
+	public void retrait(double montant) {
+		
+	}
 	/* retour des propriétés :
 	 *  nomTitulaireCompte
 	 *  prenomTitulaireCompte
