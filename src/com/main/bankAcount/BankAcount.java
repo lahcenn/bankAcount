@@ -47,7 +47,12 @@ public class BankAcount {
 	}
 	
 	public void transaction(double montant,EtatTransaction etatTransaction) {
-		solde -= montant;
+		
+		if(etatTransaction.equals(EtatTransaction.RETRAIT)) {
+			solde -= montant;			
+		}else{
+			solde += montant;
+		}
 	}
 	/* retour des propriétés :
 	 *  nomTitulaireCompte
