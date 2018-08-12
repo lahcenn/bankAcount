@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.main.bankAcount.BankAcount;
+import com.main.bankAcount.EtatTransaction;
 
 class bankAcountTest {
 
@@ -34,10 +35,11 @@ class bankAcountTest {
 		
 		BankAcount compteBancaire = new BankAcount("BIZLANE", "Lahcen", 123456789, 20000);
 		
-		compteBancaire.retrait(222.545);
-		
+		compteBancaire.transaction(222.545,EtatTransaction.RETRAIT);
 		assertEquals(20000-222.545, compteBancaire.getSolde());
 		
+		compteBancaire.transaction(222.545, EtatTransaction.DEPOT);
+		assertEquals(20000+222.545, compteBancaire.getSolde());
 	}
 
 }

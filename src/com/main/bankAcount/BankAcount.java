@@ -46,7 +46,7 @@ public class BankAcount {
 		this.solde = solde;
 	}
 	
-	public void retrait(double montant) {
+	public void transaction(double montant,EtatTransaction etatTransaction) {
 		solde -= montant;
 	}
 	/* retour des propriétés :
