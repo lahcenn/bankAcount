@@ -8,7 +8,7 @@ public class BankAcount {
 
 	private String nomTitulaireCompte;
 	private String prenomTitulaireCompte;
-	private long numeroCompte;
+	private int numeroCompte;
 	private double solde;
 	
 	/* Constructeur */
@@ -59,5 +59,6 @@ public class BankAcount {
 	public String toString() {
 		return "BankAcount [nomTitulaireCompte=" + nomTitulaireCompte + ", prenomTitulaireCompte="
 				+ prenomTitulaireCompte + ", numeroCompte=" + numeroCompte + ", solde=" + solde + "]";
+	
 	}	
 }
