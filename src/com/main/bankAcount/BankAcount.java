@@ -1,5 +1,11 @@
 package com.main.bankAcount;
 
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.Exception.bankAcount.NegativeAmountException;
+
 /**
  * @author Lahcen
  *
@@ -10,6 +16,7 @@ public class BankAcount {
 	private String prenomTitulaireCompte;
 	private int numeroCompte;
 	private double solde;
+	List<Transaction> ListeTransactions = new ArrayList<Transaction>();
 	
 	/* Constructeur */
 	public BankAcount(String nomTitulaireCompte, String prenomTitulaireCompte, int numeroCompte, double solde) {
@@ -45,25 +52,31 @@ public class BankAcount {
 	public void setSolde(double solde) {
 		this.solde = solde;
 	}
-	
-	public void transaction(double montant,EtatTransaction etatTransaction) {
-		
-		if(etatTransaction.equals(EtatTransaction.RETRAIT)) {
-			solde -= montant;			
-		}else{
-			solde += montant;
-		}
+	/**
+	 * @return the listeTransactions
+	 */
+	public List<Transaction> getListeTransactions() {
+		return ListeTransactions;
 	}
-	/* retour des propriétés :
-	 *  nomTitulaireCompte
-	 *  prenomTitulaireCompte
-	 *  numeroCompte
-	 *  solde
-	 *  */
+
+	/**
+	 * @param listeTransactions the listeTransactions to set
+	 */
+	public void setListeTransactions(List<Transaction> listeTransactions) {
+		ListeTransactions = listeTransactions;
+	}
+	
+	public void addTransactions(Transaction transaction) throws NegativeAmountException {
+		transaction.transaction();
+		this.ListeTransactions.add(transaction);
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "BankAcount [nomTitulaireCompte=" + nomTitulaireCompte + ", prenomTitulaireCompte="
-				+ prenomTitulaireCompte + ", numeroCompte=" + numeroCompte + ", solde=" + solde + "]";
-	
-	}	
+		return "BankAcount [nomTitulaireCompte=" + nomTitulaireCompte + ", prenomTitulaireCompte=" + prenomTitulaireCompte + ", numeroCompte=" + numeroCompte + ", ListeTransactions=" + ListeTransactions + "]";
+	}
+
 }
